@@ -1,5 +1,6 @@
 select
-   count(*)
+   count(syn.id) cntSynonyms,
+   count(tag.id) cntFoundTargetTagNames
 from
-   tagSynonyms syn                                     join
+   tagSynonyms syn                                     left join
    tags        tag on syn.targetTagname = tag.tagName
